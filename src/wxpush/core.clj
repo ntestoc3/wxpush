@@ -37,8 +37,6 @@
    (-> (http/post
         "http://wxpusher.zjiecode.com/api/fun/create/qrcode"
         {:content-type :json
-         :proxy-host "localhost"
-         :proxy-port 8080
          :body (json/encode {:appToken app-token
                              :extra "message code"
                              :validTime valid-time})

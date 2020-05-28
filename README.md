@@ -1,6 +1,6 @@
 # wxpush
 
-A Clojure library designed to ... well, that part is up to you.
+wechat push message 
 
 ## Usage
 
