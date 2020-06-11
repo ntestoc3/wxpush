@@ -7,11 +7,11 @@
 (deftest a-test
   (testing "gen code"
 
-    (is (= (:code (make-qrcode token))
-           1000))
+    ;; (is (= (:code (make-qrcode token))
+    ;;        1000))
 
-    (is (= (:code (send-message token {:text "aaa"
-                                       :uids "bbb"}))
-           1000))
+    ;; (is (= (:code (send-message token {:text "aaa"
+    ;;                                    :uids "bbb"}))
+    ;;        1000))
 
     ))
