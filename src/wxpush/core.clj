@@ -32,13 +32,14 @@
 
 (defn make-qrcode
   ([app-token] (make-qrcode app-token nil))
-  ([app-token {:keys [valid-time]
-               :or {valid-time 1800}}]
+  ([app-token {:keys [valid-time extra]
+               :or {valid-time 1800
+                    extra "message"}}]
    (-> (http/post
         "http://wxpusher.zjiecode.com/api/fun/create/qrcode"
         {:content-type :json
          :body (json/encode {:appToken app-token
-                             :extra "message code"
+                             :extra extra
                              :validTime valid-time})
          :as :json})
        :body)))
