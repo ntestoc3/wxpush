@@ -29,6 +29,23 @@
         (log/warn :send-message text :return r))
       r)))
 
+(defn wx-users
+  [app-token]
+  (some-> (http/get
+           "http://wxpusher.zjiecode.com/api/fun/wxuser"
+           {:content-type :json
+            :query-params {:appToken app-token
+                           :pageSize 1000}
+            :as :json})
+          :body
+          :data
+          :records
+          ))
+
+(defn all-uids
+  [app-token]
+  (->> (wx-users app-token)
+       (map :uid)))
 
 (defn make-qrcode
   ([app-token] (make-qrcode app-token nil))
